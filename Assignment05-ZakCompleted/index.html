@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 5</title>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        h1 {margin-bottom: 30px;}
+        label {font-weight: bold;}
+        input, select {margin-bottom: 10px;}
+        form {width: 30%; padding: 20px;}
+    </style>
+</head>
+<body class="mt-2 ml-4">
+    <h1>Employee Management System</h1>
+    <form id="empForm">
+        <label for="id">8-Digit Employee ID</label><br>
+        <input type="text" id="id" maxlength="8" required pattern="^[0-9]*$" class="form-control"><br>
+
+        <label for="name">Employee's Full Name</label><br>
+        <input type="text" id="name" required class="form-control"><br>
+
+        <label for="extension">Employee's 4-Digit Phone Extension</label><br>
+        <input type="text" id="extension" maxlength="4" required pattern="^[0-9]*$" class="form-control"><br>
+
+        <label for="email">Employee's Email</label><br>
+        <input type="email" id="email" required class="form-control"><br>
+
+        <label for="department">Department</label><br>
+        <select id="department" class="form-control">
+            <option value="Administration">Administration</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Executive">Executive</option>
+            <option value="Marketing">Marketing</option>
+            <option value="QA">Quality Assurance</option>
+            <option value="Sales">Sales</option>
+        </select><br>
+
+        <input type="submit" id="submit" class="btn btn-info" value="Add Employee">
+    </form>
+</body>
+</html>
