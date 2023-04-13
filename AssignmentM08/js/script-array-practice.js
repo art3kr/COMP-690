@@ -85,16 +85,73 @@
 // console.log(lastElement);
 
 //STEP 11
-
+// let movies = [];
+// movies.push('Mad Max','Blade Runner','Die Hard', 'Dune','John Wick','Fast and Furious','Star Wars');
+// moviesIRegret = ['Dont Worry Darling','50 First Dates', 'Black Beauty'];
+// movies = movies.concat(moviesIRegret);
+// movies = movies.sort();
+// movies = movies.reverse();
+// firstElement = movies.shift();
+// console.log(firstElement);
 
 //STEP 12
+// let movies = [];
+// movies.push('Mad Max','Blade Runner','Die Hard', 'Dune','John Wick','Fast and Furious','Star Wars');
+// moviesIRegret = ['Dont Worry Darling','50 First Dates', 'Black Beauty'];
+// movies = movies.concat(moviesIRegret);
+// let indices = [];
+// for (movie in movies) {
+//     if (moviesIRegret.includes(movies[movie])) {
+//         indices.push(movie);
+//     }
+// }
+// movies[indices[0]] = 'Dumb and Dumber';
+// movies[indices[1]] = 'Dude Wheres My Car';
+// movies[indices[2]] = 'Indiana Jones';
+// console.log(movies);
 
 //STEP 13
+// movies = [["Star Wars", 1], ["Indiana Jones", 2], ["Blade Runner", 3], ["Mad Max", 4], ["John Wick", 5]];
+// let movieNames = [];
+// for (movie of movies) {
+//     movieNames.push(movie.filter(item => typeof item === "string"));
+// }
+// console.log(movieNames);
 
 //STEP 14
+// let employees = ['Antonio','Ramon','Derek','Zak','George','Sally','Joe','Fred'];
+// let showEmployees = function(param) {
+//     for (employee of param) {
+//         console.log(employee);
+//     }
+// };
+// showEmployees(employees);
 
 //STEP 15
+// testArray = [58, '', 'abcd', true, null, false, 0]
+// let filterFunction = function(inputArray) {
+//     return inputArray.filter(item => item != "0" && item != false && item != null);
+// }
+// console.log(filterFunction(testArray));
 
 //STEP 16
+// let employees = ['Antonio','Ramon','Derek','Zak','George','Sally','Joe','Fred'];
+
+// let randomValue = function(inputArray) {
+//     random = Math.floor(Math.random() * inputArray.length);
+//     return inputArray[random];
+// }
+// console.log(randomValue(employees));
 
 //STEP 17
+numArray = [-20, 0, -34, 45, 100, 112, 113];
+let getLargest = function(inputArray) {
+    largest = -Infinity;
+    for (value of inputArray) {
+        if (value > largest) {
+            largest = value;
+        }
+    }
+    return largest;
+}
+console.log(getLargest(numArray))
