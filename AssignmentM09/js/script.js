@@ -2,10 +2,9 @@
 import { jsonLoader } from './modules/init.js';
 
 // Get json data object from json file
-let employeesJSON = await jsonLoader().json();
-for (let employee of employeesJSON) {
-    console.log(employee);
-}
+let employeesJSON = await jsonLoader();
+let employees = await employeesJSON.json();
+employees = employees['employees'];
 
 
 // GET DOM ELEMENTS
@@ -13,7 +12,7 @@ let empTable    = document.querySelector('#employees')
 let empCount    = document.querySelector('#empCount')
 
 // BUILD THE EMPLOYEES TABLE WHEN THE PAGE LOADS
-buildGrid(arrEmployees)
+buildGrid(employees)
 
 // DELETE EMPLOYEE
 empTable.addEventListener('click', (e) => {
@@ -24,27 +23,28 @@ empTable.addEventListener('click', (e) => {
             let rowIndex = e.target.parentNode.parentNode.rowIndex
             // REMOVE EMPLOYEE FROM ARRAY
             empTable.deleteRow(rowIndex)
+            empCount.value = `(${Number(empCount.value.slice(1, -1)) - 1})`;
         }
     }
 })
 
 // BUILD THE EMPLOYEES GRID
-function buildGrid(arrEmployees) {
+function buildGrid(objEmployees) {
     // REMOVE THE EXISTING SET OF ROWS BY REMOVING THE ENTIRE TBODY SECTION
     empTable.lastElementChild.remove()
     // REBUILD THE TBODY FROM SCRATCH
     let tbody = document.createElement('tbody')
     // LOOP THROUGH THE ARRAY OF EMPLOYEES
     // REBUILDING THE ROW STRUCTURE
-    for (let employee of arrEmployees) {
+    for (let employee in objEmployees) {
         tbody.innerHTML += 
         `
         <tr>
-            <td>${employee[0]}</td>
-            <td>${employee[1]}</td>
-            <td>${employee[2]}</td>
-            <td><a href="mailto:${employee[3]}">${employee[3]}</a></td>
-            <td>${employee[4]}</td>
+            <td>${employees[employee]['id']}</td>
+            <td>${employees[employee]['name']}</td>
+            <td>${employees[employee]['extension']}</td>
+            <td><a href="mailto:${employees[employee]['email']}">${employees[employee]['email']}</a></td>
+            <td>${employees[employee]['department']}</td>
             <td><button class="btn btn-sm btn-danger delete">X</button></td>
         </tr>
         `
@@ -52,5 +52,5 @@ function buildGrid(arrEmployees) {
     // BIND THE TBODY TO THE EMPLOYEE TABLE
     empTable.appendChild(tbody)
     // UPDATE EMPLOYEE COUNT
-    empCount.value = `(${arrEmployees.length})`
+    empCount.value = `(${Object.keys(objEmployees).length})`
 }
