@@ -26,14 +26,19 @@
 // alert(defaultText.replace("the lazy dog", firstName));
 
 //STEP 7
+// let defaultText = "The quick brown fox jumps over the lazy dog";
+// let searchWord = prompt("Give me a word to search for");
+// alert(defaultText.search(searchWord));
+
+//STEP 8
 // let old_string = "The quick brown fox jumps over the lazy dog";
 // let new_string = old_string.slice(30,45);
 // alert(new_string.toUpperCase());
 
-//STEP 8
-let defaultText = " THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG          ";
-alert(defaultText.trim().toLowerCase());
-
 //STEP 9
+// let defaultText = " THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG          ";
+// alert(defaultText.trim().toLowerCase());
 
 //STEP 10
+let defaultText = "the quick brown fox jumps over the lazy dog";
+alert(defaultText[0].toUpperCase() + defaultText.slice(1));
